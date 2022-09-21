@@ -1,3 +1,3 @@
-package com.qrakn.honcho.command.adapter
+package net.iamtakagi.kodaka.adapter
 
 interface NonNullableCommandTypeAdapter : CommandTypeAdapter

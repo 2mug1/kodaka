@@ -1,6 +1,6 @@
-package com.qrakn.honcho.command.adapter.impl
+package net.iamtakagi.kodaka.adapter.impl
 
-import com.qrakn.honcho.command.adapter.NonNullableCommandTypeAdapter
+import net.iamtakagi.kodaka.adapter.NonNullableCommandTypeAdapter
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.command.CommandSender

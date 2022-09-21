@@ -1,4 +1,4 @@
-package com.qrakn.honcho.command
+package net.iamtakagi.kodaka.annotation
 
 /**
  * Defines a class as a command.

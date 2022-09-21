@@ -1,4 +1,4 @@
-package com.qrakn.honcho.command.adapter
+package net.iamtakagi.kodaka.adapter
 
 import org.bukkit.command.CommandSender
 import java.lang.Exception

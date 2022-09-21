@@ -1,19 +1,14 @@
-package com.qrakn.honcho
+package net.iamtakagi.kodaka
 
-import com.qrakn.honcho.command.CommandMeta
-import com.qrakn.honcho.command.adapter.NonNullableCommandTypeAdapter
-import org.apache.commons.lang.StringUtils
-import org.apache.commons.lang.mutable.Mutable
+import net.iamtakagi.kodaka.annotation.CommandMeta
+import org.apache.commons.lang3.StringUtils
 import org.bukkit.Bukkit
-import org.bukkit.ChatColor
 import org.bukkit.command.CommandSender
 import org.bukkit.command.defaults.BukkitCommand
 import org.bukkit.entity.Player
-import java.lang.Exception
-import java.lang.NullPointerException
 import java.util.*
 
-internal class HonchoCommand(label: String, private val executor: HonchoExecutor) : BukkitCommand(label) {
+internal class KodakaCommand(label: String, private val executor: KodakaExecutor) : BukkitCommand(label) {
 
     companion object {
         fun getHierarchicalLabel(clazz: Class<Any>, list: MutableList<String>): List<String> {
@@ -56,13 +51,13 @@ internal class HonchoCommand(label: String, private val executor: HonchoExecutor
 
         val correctArguments = ArrayList<String>(args.toMutableList().subList(label.split(' ').size - 1, args.size))
 
-        return executor.execute(sender, executor.commandMap.getCommand(label), label.toLowerCase(), correctArguments.toTypedArray())
+        return executor.execute(sender, executor.commandMap.getCommand(label)!!, label.toLowerCase(), correctArguments.toTypedArray())
     }
 
     override fun tabComplete(sender: CommandSender, commandLabel: String, args: Array<out String>): MutableList<String> {
         val message = arrayOf(commandLabel, *args)
         var label: String
-        var binding: HonchoExecutor.CommandBinding? = null
+        var binding: KodakaExecutor.CommandBinding? = null
 
         for (i in message.size downTo 1) {
             label = StringUtils.join(message, " ", 0, i)

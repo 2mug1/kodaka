@@ -1,11 +1,11 @@
-package com.qrakn.honcho
+package net.iamtakagi.kodaka
 
-import com.qrakn.honcho.command.CA
-import com.qrakn.honcho.command.CPL
-import com.qrakn.honcho.command.CommandMeta
-import com.qrakn.honcho.command.adapter.CommandTypeAdapter
-import com.qrakn.honcho.command.adapter.NonNullableCommandTypeAdapter
-import org.apache.commons.lang.StringUtils
+import net.iamtakagi.kodaka.adapter.CommandTypeAdapter
+import net.iamtakagi.kodaka.adapter.NonNullableCommandTypeAdapter
+import net.iamtakagi.kodaka.annotation.CA
+import net.iamtakagi.kodaka.annotation.CPL
+import net.iamtakagi.kodaka.annotation.CommandMeta
+import org.apache.commons.lang3.StringUtils
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.command.Command
@@ -21,7 +21,7 @@ import java.lang.NullPointerException
 import java.lang.reflect.Method
 import java.util.HashMap
 
-internal class HonchoExecutor(private val honcho: Honcho) : CommandExecutor {
+internal class KodakaExecutor(private val kodaka: Kodaka) : CommandExecutor {
 
     internal val adapters: MutableMap<Class<out Any>, CommandTypeAdapter> = HashMap()
     internal val commands: MutableMap<String, CommandBinding> = HashMap()
@@ -38,16 +38,16 @@ internal class HonchoExecutor(private val honcho: Honcho) : CommandExecutor {
         }
 
         val binding = CommandBinding(methods.toTypedArray(), command)
-        for (label in HonchoCommand.getHierarchicalLabel(command.javaClass, ArrayList())) {
+        for (label in KodakaCommand.getHierarchicalLabel(command.javaClass, ArrayList())) {
             commands[label] = binding
 
             if (commandMap.getCommand(label) == null) {
-                val honchoCommand = HonchoCommand(label, this)
+                val command = KodakaCommand(label, this)
 
-                honchoCommand.usage = getCommandUsage(label)
-                honchoCommand.description = meta.description
+                command.usage = getCommandUsage(label)
+                command.description = meta.description
 
-                commandMap.register(honcho.plugin.name, honchoCommand)
+                commandMap.register(kodaka.plugin.name, command)
             }
         }
 
@@ -64,7 +64,7 @@ internal class HonchoExecutor(private val honcho: Honcho) : CommandExecutor {
         val instance = binding.command
 
         if (meta.permission.isNotEmpty() && !sender.hasPermission(meta.permission)) {
-            var message = honcho.noPermissionMessage
+            var message = kodaka.noPermissionMessage
 
             if (meta.noPermissionMessage.isNotEmpty()) {
                 message = meta.noPermissionMessage
@@ -156,9 +156,9 @@ internal class HonchoExecutor(private val honcho: Honcho) : CommandExecutor {
         }
 
         if (meta.async) {
-            runnable.runTaskAsynchronously(honcho.plugin)
+            runnable.runTaskAsynchronously(kodaka.plugin)
         } else {
-            runnable.runTask(honcho.plugin)
+            runnable.runTask(kodaka.plugin)
         }
 
         return true

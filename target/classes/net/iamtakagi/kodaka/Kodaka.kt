@@ -1,17 +1,18 @@
-package com.qrakn.honcho
+package net.iamtakagi.kodaka
 
-import com.qrakn.honcho.command.adapter.CommandTypeAdapter
-import com.qrakn.honcho.command.adapter.impl.IntegerTypeAdapter
-import com.qrakn.honcho.command.adapter.impl.PlayerTypeAdapter
-import com.qrakn.honcho.command.adapter.impl.StringTypeAdapter
+import net.iamtakagi.kodaka.KodakaExecutor
+import net.iamtakagi.kodaka.adapter.CommandTypeAdapter
+import net.iamtakagi.kodaka.adapter.impl.IntegerTypeAdapter
+import net.iamtakagi.kodaka.adapter.impl.PlayerTypeAdapter
+import net.iamtakagi.kodaka.adapter.impl.StringTypeAdapter
 import org.bukkit.ChatColor
 import org.bukkit.entity.Player
 import org.bukkit.plugin.java.JavaPlugin
 
-class Honcho(val plugin: JavaPlugin) {
+class Kodaka(val plugin: JavaPlugin) {
 
-    private val executor: HonchoExecutor = HonchoExecutor(this)
-    var noPermissionMessage = "${ChatColor.RED}You don't have permission to do this."
+    private val executor: KodakaExecutor = KodakaExecutor(this)
+    var noPermissionMessage = "${ChatColor.RED}このコマンドを実行するパーミッションがありません"
 
     init {
         registerTypeAdapter(String::class.java, StringTypeAdapter())

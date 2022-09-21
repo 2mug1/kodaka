@@ -6,6 +6,12 @@
 
 `pom.xml`
 ```xml
+ <repository>
+  <id>github</id>
+  <name>GitHub Packages</name>
+  <url>https://maven.pkg.github.com/2mug1/kodaka</url>
+</repository>
+
 <dependency>
   <groupId>net.iamtakagi</groupId>
   <artifactId>kodaka</artifactId>

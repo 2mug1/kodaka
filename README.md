@@ -47,3 +47,6 @@ public class BroadcastCommand {
 
 **Result** (A kodaka automatically generates command usage and converts String[] arguments into a single String)
 > ![img](https://i.gyazo.com/15f0fc1f1af2f49dda1571a1a80e31ce.gif)
+
+## LICENSE
+[MIT License](./LICENSE) (© 2022 iamtakagi)

@@ -15,8 +15,6 @@ jobs:
         with:
           java-version: '18'
           distribution: 'adopt'
-          server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
-          settings-path: ${{ github.workspace }} # location for the settings.xml file
       - name: Publish package
         run: mvn --batch-mode deploy
         env:

@@ -8,7 +8,7 @@
 ```xml
  <repository>
   <id>github</id>
-  <name>GitHub Packages</name>
+  <name>kodaka</name>
   <url>https://maven.pkg.github.com/2mug1/kodaka</url>
 </repository>
 

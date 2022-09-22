@@ -15,8 +15,19 @@
 <dependency>
   <groupId>net.iamtakagi</groupId>
   <artifactId>kodaka</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
+  <scope>net.iamtakagi:kodaka:1.0.1</scope>
 </dependency>
+```
+
+`build.gradle`
+```gradle
+repositories {
+  maven (url = "https://maven.pkg.github.com/2mug1/kodaka")
+}
+dependencies {
+  implementation("net.iamtakagi:kodaka:1.0.1")
+}
 ```
 
 ### Usage

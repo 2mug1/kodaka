@@ -16,7 +16,7 @@
   <groupId>net.iamtakagi</groupId>
   <artifactId>kodaka</artifactId>
   <version>1.0.1</version>
-  <scope>net.iamtakagi:kodaka:1.0.1</scope>
+  <scope>compile</scope>
 </dependency>
 ```
 

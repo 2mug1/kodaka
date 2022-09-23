@@ -100,7 +100,7 @@ internal class KodakaCommand(label: String, private val executor: KodakaExecutor
                 }
             }
 
-            val parameter = parameters[args.indexOf(arg)]
+            val parameter = parameters[args.indexOf(arg) - 1] // -1してみる エラーが出るので Caused by: java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1 at net.iamtakagi.kodaka.KodakaCommand.tabComplete(KodakaCommand.kt:103)
             val adapter = executor.adapters[parameter.type]
 
             if (adapter == null) {

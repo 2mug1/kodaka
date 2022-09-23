@@ -15,7 +15,7 @@
 <dependency>
   <groupId>net.iamtakagi</groupId>
   <artifactId>kodaka</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -26,7 +26,7 @@ repositories {
   maven (url = "https://maven.pkg.github.com/2mug1/kodaka")
 }
 dependencies {
-  implementation("net.iamtakagi:kodaka:1.0.1")
+  implementation("net.iamtakagi:kodaka:1.0.2")
 }
 ```
 

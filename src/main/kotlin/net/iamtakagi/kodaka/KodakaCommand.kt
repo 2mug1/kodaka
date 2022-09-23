@@ -54,6 +54,9 @@ internal class KodakaCommand(label: String, private val executor: KodakaExecutor
         return executor.execute(sender, executor.commandMap.getCommand(label)!!, label.toLowerCase(), correctArguments.toTypedArray())
     }
 
+
+    /*
+    致命的なエラーが発生するため、実装を取り消しています
     override fun tabComplete(sender: CommandSender, commandLabel: String, args: Array<out String>): MutableList<String> {
         val message = arrayOf(commandLabel, *args)
         var label: String
@@ -100,7 +103,7 @@ internal class KodakaCommand(label: String, private val executor: KodakaExecutor
                 }
             }
 
-            val parameter = parameters[args.indexOf(arg) - 1] // -1してみる エラーが出るので Caused by: java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1 at net.iamtakagi.kodaka.KodakaCommand.tabComplete(KodakaCommand.kt:103)
+            val parameter = parameters[args.indexOf(arg)] // Caused by: java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1 at net.iamtakagi.kodaka.KodakaCommand.tabComplete(KodakaCommand.kt:103)
             val adapter = executor.adapters[parameter.type]
 
             if (adapter == null) {
@@ -118,5 +121,5 @@ internal class KodakaCommand(label: String, private val executor: KodakaExecutor
 
         return mutableListOf()
     }
-
+    */
 }

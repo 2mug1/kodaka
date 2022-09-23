@@ -14,7 +14,7 @@
 
     <groupId>net.iamtakagi</groupId>
     <artifactId>kodaka</artifactId>
-    <version>dev-20220924</version>
+    <version>SNAPSHOT-1.0.2</version>
 
     <properties>
         <kotlin.version>1.7.10</kotlin.version>
